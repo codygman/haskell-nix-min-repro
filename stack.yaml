@@ -1,19 +1,5 @@
 allow-different-user: true
 resolver: lts-15.3
-extra-deps:
-  - happstack-server-7.6.0
-  - HDBC-2.4.0.3
-  - HDBC-postgresql-2.3.2.7
-  - json-0.10
-  - xml-lens-0.2
-  - git: https://github.com/EdutainmentLIVE/orville
-    commit: 8a2432891e96a547777b67a67135e235a1dce80c
-  - git: https://github.com/tfausak/HPDF
-    commit: 31e2b887cd32661b1ac936335635be5c00216bc8
-  - git: https://github.com/tfausak/convertible
-    commit: 9e4849e143458aa3175e71bc2a8a29502272eb88
-  - git: https://github.com/haskell-vanguard/network-bsd
-    commit: 9f372485748f8b29ce6e723eb838da6f55d4157f
 flags:
   bson:
     _old-network: false
