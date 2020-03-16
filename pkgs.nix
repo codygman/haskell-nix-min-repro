@@ -13,6 +13,8 @@
         haskell-nix-minimal = ./haskell-nix-minimal.nix;
         json = ./json.nix;
         network-bsd = ./network-bsd.nix;
+        HPDF = ./HPDF.nix;
+        orville = ./orville.nix;
         };
       };
   resolver = "lts-15.3";
