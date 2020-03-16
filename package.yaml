@@ -11,8 +11,8 @@ default-extensions:
   - ScopedTypeVariables
 
 dependencies:
-  - base
-
+  - base >= 4.7 && < 5
+  - stm
 ghc-options:
   - -Weverything
   - -Wno-all-missed-specializations
