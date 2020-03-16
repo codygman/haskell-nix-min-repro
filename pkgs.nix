@@ -15,6 +15,7 @@
         network-bsd = ./network-bsd.nix;
         HPDF = ./HPDF.nix;
         orville = ./orville.nix;
+        stm = hackage.stm."2.5.0.0".revisions.default;
         };
       };
   resolver = "lts-15.3";
