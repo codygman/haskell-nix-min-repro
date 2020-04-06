@@ -18,4 +18,11 @@ error: build of '/nix/store/5kciwd9yy27q61708ych03bkr6fgw7k5-ghc-shell-for-haske
 
 ```
 
-I'm guessing it's something wrong with how I define overlays in default.nix:51.
+I'm guessing it's something wrong with how I define overlays in default.nix:51
+because I define [orville
+here](https://github.com/codygman/haskell-nix-min-repro/blob/c9a630671532cfadde1ed70a095e284f3c700bff/default.nix#L3),
+use it [in this overlay
+definition](https://github.com/codygman/haskell-nix-min-repro/blob/c9a630671532cfadde1ed70a095e284f3c700bff/default.nix#L41),
+and then [instantiate overlays here](https://github.com/codygman/haskell-nix-min-repro/blob/c9a630671532cfadde1ed70a095e284f3c700bff/default.nix#L51).
+
+Same for HPDF.
