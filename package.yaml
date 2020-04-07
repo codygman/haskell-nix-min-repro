@@ -1,6 +1,7 @@
 name: haskell-nix-minimal
 
 dependencies:
+  - base
   - bson
 library:
   source-dirs: library
