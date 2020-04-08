@@ -1,0 +1,36 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.33.0.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: e9f8518f69910e385761d44f72aa1ad74e8b346816643e88a4ae2610f3752352
+
+name:           haskell-nix-minimal
+version:        0.0.0
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+
+library
+  other-modules:
+      Paths_haskell_nix_minimal
+  hs-source-dirs:
+      library
+  build-depends:
+      base
+    , bson
+  default-language: Haskell2010
+
+executable haskell-nix-minimal
+  main-is: Main.hs
+  other-modules:
+      Paths_haskell_nix_minimal
+  hs-source-dirs:
+      executable
+  ghc-options: -rtsopts -threaded
+  build-depends:
+      base
+    , bson
+    , haskell-nix-minimal
+  default-language: Haskell2010
