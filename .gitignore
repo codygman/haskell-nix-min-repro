@@ -1,5 +1,4 @@
 .stack-work/
-haskell-nix-minimal.cabal
 *~
 .stack-to-nix.cache
 .*swp
