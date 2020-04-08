@@ -1,30 +1,21 @@
 let
   nixpkgs-src = builtins.fetchTarball {
-    url = "https://github.com/NixOS/nixpkgs/archive/3567e1f6cc204f3b999431ce9e182a86e115976f.tar.gz";
-    sha256 = "sha256:1jxsaynvj7cis3sdxbs596lxm9wyl0kf8a4519xfxzg8x45wc8cr";
+    # nixpkgs haskell-updates branch 2020-04-08
+    url = "https://github.com/NixOS/nixpkgs/archive/8e87b4ad958e7ffc055af92ce91127e9e52b916a.tar.gz";
+    sha256 = "sha256:1ysjx6n0g4hzpflqf16lyxjli5zfs7hqgjyvqlf2ld2cpwhik82q";
   };
 
   my-overlay = self: super: {
     my-haskell-packages = super.haskellPackages.override {
       overrides = hSelf: hSuper: with self.haskell.lib; {
-        # !!! Because we moved to 18.09, bson is already working well, so we
-        # !!! don't need to override it or anything.
-        # bson = ...
-
-        # !!! Because HPDF and HTF are already working in 18.09, we don't have
-        # !!! to override them.
-        # HPDF = ...
-        # HTF = ...
-
-        # HPDF =
-        #   let
-        #     # !!! It will never work getting some packages from a different
-        #     # !!! Haskell Package set like this.  You need to make sure everything
-        #     # !!! comes from the same package set.
-        #     unbroken-old-HTF = self.haskell.lib.markUnbroken HTF-nixpkgs.haskellPackages.HTF;
-        #     unbroken-HPDF = self.haskell.lib.markUnbroken self.haskellPackages.HPDF;
-        #     unbroken-HPDF-with-old-HTF = self.haskell.lib.addBuildDepend unbroken-HPDF unbroken-old-HTF;
-        #   in unbroken-HPDF-with-old-HTF;
+        # my patched HPDF that doesn't require HTF
+        # QUESTION: I see that I can use `super.fetchFromGitHub` or `self.fetchFromGitHub`. Does the difference matter in this context or others I should know about?
+        HPDF = super.fetchFromGitHub {
+          owner = "codygman";
+          repo = "HPDF";
+          rev = "a87f1f68ab8c6abc4de26d40a3c28b1b108effe3";
+          sha256 = "0i8z3zr4z55bzidlh3pz3r3h0hachk5ndfhznw3kqk4c5j6y27ry";
+        };
       };
     };
   };
