@@ -1,21 +1,7 @@
 let
   nixpkgs-src = builtins.fetchTarball {
-    # If you search for HPDF on Hydra (https://hydra.nixos.org/search?query=HPDF),
-    # you can see that the last successful build was in 18.09: https://hydra.nixos.org/build/89581306
-    # Since it is not possible to easily combine different Haskell packages
-    # from different nixpkgs, we just fall back to 18.09 and get everything
-    # from there.
-    #
-    # The following nixpkgs commit is from the build inputs of
-    # https://hydra.nixos.org/build/89581306.
-    #
-    # 18.09 contains ghc-8.4.4 (I think?)
-    #
-    # If you really want to use HPDF and HTF with the latest compiler, you will
-    # have to patch them.  See the Haskell stuff in nixpkgs for how to do this.
-    # Grepping for "fetchPatch" should give you some good places to look.
-    url = "https://github.com/NixOS/nixpkgs/archive/8c2447fdee1af9310367b1ad7b63aed6217d3445.tar.gz";
-    sha256 = "sha256:1zp6gn7h8mvs8a8fl9bxwm5ah8c3vg7irfihfr3k104byhfq2xd6";
+    url = "https://github.com/NixOS/nixpkgs/archive/3567e1f6cc204f3b999431ce9e182a86e115976f.tar.gz";
+    sha256 = "sha256:1jxsaynvj7cis3sdxbs596lxm9wyl0kf8a4519xfxzg8x45wc8cr";
   };
 
   my-overlay = self: super: {
@@ -57,5 +43,5 @@ let
   };
 in
 pkg.overrideAttrs (attrs: {
-        buildInputs = attrs.buildInputs ++ [ nixpkgs.haskellPackages.cabal-install ];
-    })
+  buildInputs = attrs.buildInputs ++ [ nixpkgs.haskellPackages.cabal-install ];
+})
