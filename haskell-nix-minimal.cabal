@@ -22,6 +22,7 @@ library
   build-depends:
       base
     , bson
+    , HPDF
   default-language: Haskell2010
 
 executable haskell-nix-minimal
