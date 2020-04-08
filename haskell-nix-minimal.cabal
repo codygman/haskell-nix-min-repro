@@ -13,6 +13,8 @@ license-file:   LICENSE
 build-type:     Simple
 
 library
+  exposed-modules:
+    MyModule
   other-modules:
       Paths_haskell_nix_minimal
   hs-source-dirs:

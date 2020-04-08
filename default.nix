@@ -82,4 +82,6 @@ let
   # and `source-overrides`.
   pkg = nixpkgs.my-haskell-packages.developPackage { root = ./.; };
 in
-pkg
+pkg.overrideAttrs (attrs: {
+        buildInputs = attrs.buildInputs ++ [ nixpkgs.haskellPackages.cabal-install ];
+    })
