@@ -50,7 +50,6 @@ dependencies:
   - HDBC
   - HDBC-postgresql
   - hedis
-  - HPDF
   - hslogger
   - http-client
   - http-client-tls
