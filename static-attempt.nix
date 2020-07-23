@@ -6,9 +6,9 @@ let
   nixpkgsSrc = haskellNix.sources.nixpkgs-2003;
   nixpkgsArgs = haskellNix.nixpkgsArgs;
   pkgsOne = import nixpkgsSrc nixpkgsArgs;
-  pkgsNative = pkgsOne.pkgsCross.musl64;
-  native = myProject { pkgs = pkgsOne.pkgsCross.musl64; };
-  haskell-nix-minimal-native-with-flags = native.haskell-nix-minimal.components.exes.haskell-nix-minimal
+  pkgsMusl64 = pkgsOne.pkgsCross.musl64;
+  musl64 = myProject { pkgs = pkgsOne.pkgsCross.musl64; };
+  haskell-nix-minimal-musl64-with-flags = musl64.haskell-nix-minimal.components.exes.haskell-nix-minimal
     { configureFlags = [
       "--disable-executable-dynamic"
       "--disable-shared"
@@ -19,7 +19,7 @@ let
       ]; };
 in {
   pkgsOne = pkgsOne;
-  pkgsNative = pkgsNative;
+  pkgsMusl64 = pkgsMusl64;
   haskellNix = haskellNix;
-  haskell-nix-minimal-native = native.haskell-nix-minimal.components.exes.haskell-nix-minimal;
+  haskell-nix-minimal-musl64 = musl64.haskell-nix-minimal.components.exes.haskell-nix-minimal;
 }
