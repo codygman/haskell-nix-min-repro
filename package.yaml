@@ -1,5 +1,5 @@
 name: haskell-nix-minimal
-version: 22
+version: 23
 default-extensions:
   - ConstraintKinds
   - DataKinds
@@ -24,7 +24,6 @@ dependencies:
   - aeson
   - aeson-pretty
   - aeson-qq
-  - AesonBson
   - amazonka
   - amazonka-cloudwatch
   - amazonka-cloudwatch-events
@@ -55,9 +54,7 @@ dependencies:
   - happstack-server
   - hashable
   - HDBC
-  - HDBC-postgresql
   - hedis
-  - HPDF
   - hslogger
 
 ghc-options:
@@ -71,15 +68,17 @@ ghc-options:
   - -Wno-safe
   - -Wno-unsafe
 
+
 library:
   source-dirs: library
+
 _executable: &executable
-  ghc-options:
-    - -rtsopts
-    - -threaded
   main: Main.hs
 
 executable:
-  <<: *executable
+  ghc-options:
+    - -rtsopts
+    - -threaded
   dependencies: haskell-nix-minimal
   source-dirs: executable
+  main: Main.hs
