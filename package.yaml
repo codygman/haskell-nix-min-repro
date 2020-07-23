@@ -1,72 +1,8 @@
 name: haskell-nix-minimal
 version: 23
-default-extensions:
-  - ConstraintKinds
-  - DataKinds
-  - DeriveGeneric
-  - DerivingVia
-  - FlexibleContexts
-  - FlexibleInstances
-  - GeneralizedNewtypeDeriving
-  - MultiParamTypeClasses
-  - OverloadedLabels
-  - OverloadedStrings
-  - QuasiQuotes
-  - RankNTypes
-  - ScopedTypeVariables
-  - TemplateHaskell
-  - TupleSections
-  - TypeApplications
-  - TypeFamilies
-  - TypeOperators
 
 dependencies:
-  - aeson
-  - aeson-pretty
-  - aeson-qq
-  - amazonka
-  - amazonka-cloudwatch
-  - amazonka-cloudwatch-events
-  - amazonka-core
-  - amazonka-s3
-  - amazonka-sns
-  - amazonka-sqs
-  - amazonka-sts
-  - async
-  - base
-  - base64-bytestring
-  - bcrypt
-  - bson
-  - bytestring
-  - case-insensitive
-  - cassava
-  - conduit
-  - conduit-combinators
-  - containers
-  - convertible
-  - cryptonite
-  - csv-conduit
-  - deepseq
-  - dlist
-  - either
-  - esqueleto
-  - exceptions
-  - happstack-server
-  - hashable
-  - HDBC
-  - hedis
-  - hslogger
-
-ghc-options:
-  - -Weverything
-  - -Wno-all-missed-specializations
-  - -Wno-implicit-prelude
-  - -Wno-missed-specialisations
-  - -Wno-missing-deriving-strategies
-  - -Wno-missing-exported-signatures
-  - -Wno-redundant-constraints
-  - -Wno-safe
-  - -Wno-unsafe
+  - HDBC-postgresql
 
 
 library:

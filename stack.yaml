@@ -10,3 +10,6 @@ nix:
 # Use the nix installed ghc
 system-ghc: true
 install-ghc: true
+
+extra-deps:
+  - HDBC-postgresql-2.3.2.7
