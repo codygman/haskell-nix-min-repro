@@ -26,6 +26,8 @@ let
       "--ghc-option=-optl=-L${haskellNix.pkgs.zlib.static}/lib"
       "--ghc-option=-optl=-L${haskellNix.pkgs.postgresql}/lib"
       ];
+      nativeBuildInputs = musl64.haskell-nix-minimal.components.exes.haskell-nix-minimal.nativeBuildInputs ++ haskellNix.pkgs.postgresql;
+    };
 in {
   pkgsOne = pkgsOne;
   pkgsMusl64 = pkgsMusl64;
