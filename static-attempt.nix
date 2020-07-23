@@ -8,6 +8,7 @@ let
   pkgsOne = import nixpkgsSrc nixpkgsArgs;
   pkgsMusl64 = pkgsOne.pkgsCross.musl64;
   musl64 = myProject { pkgs = pkgsOne.pkgsCross.musl64; };
+  postgresqlNoSystemD = haskellNix.pkgs.postgresql.override({systemd=null;});
   haskell-nix-minimal-musl64-with-flags = musl64.haskell-nix-minimal.components.exes.haskell-nix-minimal
     { configureFlags = [
       "--disable-executable-dynamic"
@@ -16,6 +17,7 @@ let
       "--ghc-option=-optl=-static"
       "--ghc-option=-optl=-L${haskellNix.pkgs.gmp6.override { withStatic = true; }}/lib"
       "--ghc-option=-optl=-L${haskellNix.pkgs.zlib.static}/lib"
+      "--ghc-option=-optl=-L${postgresqlNoSystemD}/lib"
       ]; };
 in {
   pkgsOne = pkgsOne;
