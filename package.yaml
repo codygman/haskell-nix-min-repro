@@ -1,18 +1,30 @@
 name: haskell-nix-minimal
 version: 22
 default-extensions:
+  - ConstraintKinds
+  - DataKinds
+  - DeriveGeneric
+  - DerivingVia
   - FlexibleContexts
   - FlexibleInstances
   - GeneralizedNewtypeDeriving
   - MultiParamTypeClasses
+  - OverloadedLabels
   - OverloadedStrings
   - QuasiQuotes
   - RankNTypes
   - ScopedTypeVariables
+  - TemplateHaskell
+  - TupleSections
+  - TypeApplications
+  - TypeFamilies
+  - TypeOperators
 
 dependencies:
   - aeson
+  - aeson-pretty
   - aeson-qq
+  - AesonBson
   - amazonka
   - amazonka-cloudwatch
   - amazonka-cloudwatch-events
@@ -29,7 +41,6 @@ dependencies:
   - bytestring
   - case-insensitive
   - cassava
-  - clock
   - conduit
   - conduit-combinators
   - containers
@@ -37,14 +48,10 @@ dependencies:
   - cryptonite
   - csv-conduit
   - deepseq
-  - directory
   - dlist
   - either
-  - email-validate
-  - envy
+  - esqueleto
   - exceptions
-  - extra
-  - filepath
   - happstack-server
   - hashable
   - HDBC
@@ -52,6 +59,7 @@ dependencies:
   - hedis
   - HPDF
   - hslogger
+  - http-api-data
   - http-client
   - http-client-tls
   - http-conduit
@@ -60,8 +68,10 @@ dependencies:
   - JuicyPixels-extra
   - jwt
   - lens
+  - lens-aeson
   - memory
   - monad-control
+  - monad-logger
   - mongoDB
   - mono-traversable
   - mtl
@@ -69,12 +79,22 @@ dependencies:
   - network-uri
   - orville
   - parsec
+  - persistent
+  - persistent-postgresql
+  - persistent-template
+  - pretty-simple
+  - process
   - random
   - resource-pool
   - resourcet
+  - safe-money
   - scientific
-  - split
+  - servant-server
+  - servant-swagger
+  - servant-swagger-ui
   - stm
+  - stringsearch
+  - swagger2
   - template-haskell
   - text
   - time
@@ -84,10 +104,13 @@ dependencies:
   - unordered-containers
   - uuid
   - vector
+  - wai
+  - warp
   - xml-conduit
   - xml-conduit-writer
   - xml-lens
   - xml-types
+
 ghc-options:
   - -Weverything
   - -Wno-all-missed-specializations
@@ -95,16 +118,10 @@ ghc-options:
   - -Wno-missed-specialisations
   - -Wno-missing-deriving-strategies
   - -Wno-missing-exported-signatures
+  - -Wno-redundant-constraints
   - -Wno-safe
   - -Wno-unsafe
-extra-source-files:
-  - .hlint.yaml
-  - brittany.yaml
-data-dir: data
-data-files:
-  - border.jpg
-  - logo.jpg
-  - signature.jpg
+
 library:
   source-dirs: library
 _executable: &executable
@@ -112,6 +129,7 @@ _executable: &executable
     - -rtsopts
     - -threaded
   main: Main.hs
+
 executable:
   <<: *executable
   dependencies: haskell-nix-minimal
